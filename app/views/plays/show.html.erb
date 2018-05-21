@@ -3,6 +3,11 @@
 <h3> Directed by <%= @play.director %></h3>
 <p><%= @play.description %></p>
 
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_play_path %>
-<%= link_to "Delete", play_path(@play), method: :delete, data: {confirm: "Are you sure?"} %>
+<div class="btn btn-default"> <%= link_to "Back", root_path %> </div>
+<% if user_signed_in? %>
+    <% if @play.user_id == current_user.id %>
+        <div class="btn btn-default"><%= link_to "Edit", edit_play_path %></div>
+        <div class="btn btn-danger"><%= link_to "Delete", play_path(@play), method: :delete, data: {confirm: "Are you sure?"} %></div>
+    <% end %>
+<% end %>
+
