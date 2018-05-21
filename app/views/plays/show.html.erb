@@ -1,6 +1,7 @@
 <h1> Show Template </h1>
 <h1><%= @play.title %></h1>
 <h3> Directed by <%= @play.director %></h3>
+<h4> Category <%= @play.category.name %></h4>
 <p><%= @play.description %></p>
 
 <div class="btn btn-default"> <%= link_to "Back", root_path %> </div>
